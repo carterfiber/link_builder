@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @link.name %>
+</p>
+
+<p>
+  <strong>Reg url:</strong>
+  <%= @link.reg_url %>
+</p>
+
+<p>
+  <strong>Src name:</strong>
+  <%= @link.src_name %>
+</p>
+
+<p>
+  <strong>Pfm name:</strong>
+  <%= @link.pfm_name %>
+</p>
+
+<p>
+  <strong>Opt identifier:</strong>
+  <%= @link.opt_identifier %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
