@@ -12,7 +12,8 @@ class Link < ApplicationRecord
 
 	def final_url(reg_url,src_name,pfm_name,opt_identifier)
 		
-		"#{self.reg_url}?aff=#{self.src_name}#{self.pfm_name}#{self.opt_identifier}"
+		url = "#{self.reg_url}?aff=#{self.src_name}#{self.pfm_name}#{self.opt_identifier}"
+		
 	end
 end
 
