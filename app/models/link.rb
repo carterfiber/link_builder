@@ -1,4 +1,5 @@
 class Link < ApplicationRecord
+	validates :reg_url, presence: true
 	
 	def self.import(file)
 		counter = 0

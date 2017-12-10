@@ -1,10 +1,13 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
+  
+
   # GET /links
   # GET /links.json
   def index
     @links = Link.all
+    @import = Link::Import.new
 
     respond_to do |format|
       format.html
@@ -13,8 +16,16 @@ class LinksController < ApplicationController
   end
 
   def import
-    count = Link.import params[:file]
-    redirect_to links_path, notice: "Imported #{count} links"
+    @import = Link::Import.new link_import_params
+    if @import.save
+      redirect_to links_path, notice: "Imported #{@import.imported_count} links."
+    else
+      @links = Link.all
+      flash[:alert] = "There were #{@import.errors.count} errors with your CSV file."
+      render action: :index 
+    end
+    # count = Link.import params[:file]
+    # redirect_to links_path, notice: "Imported #{count} links"
   end
 
   # GET /links/1
@@ -72,6 +83,10 @@ class LinksController < ApplicationController
   end
 
   private
+
+    def link_import_params
+      params.require(:link_import).permit(:file)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_link
       @link = Link.find(params[:id])
