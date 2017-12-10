@@ -11,32 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :link_name %>
+  <div class="form-group">
+    
+    <%= form.text_field :name, id: :link_name, placeholder: "UTM Name", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :reg_url %>
-    <%= form.text_field :reg_url, id: :link_reg_url %>
+  <div class="form-group">
+    <%= form.text_field :reg_url, id: :link_reg_url, placeholder: "Base URL", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :src_name %>
-    <%= form.text_field :src_name, id: :link_src_name %>
+  <div class="form-group">
+    <%= form.text_field :src_name, id: :link_src_name, placeholder: "Source i.e. UW, VW, etc. ", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :pfm_name %>
-    <%= form.text_field :pfm_name, id: :link_pfm_name %>
+  <div class="form-group">
+    <%= form.text_field :pfm_name, id: :link_pfm_name, placeholder: "Platform i.e. Facebook, Email, etc.", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :opt_identifier %>
-    <%= form.text_field :opt_identifier, id: :link_opt_identifier %>
+  <div class="Form-group">
+    <%= form.text_field :opt_identifier, id: :link_opt_identifier, placeholder: "Optional Field", class: "form-control" %>
+  </div>
+  
+  <hr>
+  
+  <div>
+    <%= form.submit "Submit", class: "form-control btn btn-primary" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <hr>
+
 <% end %>

@@ -11,7 +11,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @links.to_csv, filename: "links-#{Date.today}.csv" }
+      format.csv { send_data @links.to_csv, filename: "UTM-links-#{Date.today}.csv" }
     end
   end
 
