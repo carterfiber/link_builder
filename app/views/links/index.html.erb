@@ -36,4 +36,9 @@
 
 <%= link_to 'Add New Link', new_link_path %> | 
 
-<%= link_to "Download Spreadsheet", links_path(format: "csv") %>
+<%= link_to "Download Spreadsheet", links_path(format: "csv") %> | 
+
+<%= form_tag import_links_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload" %>
+<% end %>

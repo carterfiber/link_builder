@@ -12,6 +12,11 @@ class LinksController < ApplicationController
     end
   end
 
+  def import
+    count = Link.import params[:file]
+    redirect_to links_path, notice: "Imported #{count} links"
+  end
+
   # GET /links/1
   # GET /links/1.json
   def show
